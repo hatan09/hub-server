@@ -80,7 +80,7 @@ public class ChatHub : Hub
                                   string fromUserId,
                                   string toUserId)
     {
-        var fromUser = await _userManager.FindBySignalRConnectionIdAndConversationAsync(Context.ConnectionId, conversationId);
+        var fromUser = await _userManager.FindByIdAsync(fromUserId);
         var toUser = await _userManager.FindByIdAsync(toUserId);
         if (fromUser == null || toUser == null)
         {
